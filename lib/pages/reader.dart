@@ -32,14 +32,19 @@ class _ReaderState extends State<Reader> {
         appBar(context),
         SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Padding( 
+          child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Column(
               children: [
-                buildFullImage('assets/images/dummy/0.jpg',context),
-                buildText('Kouhai dev terinspirasi dari kalimat jepang  “こうはい” yang dibaca “kouhai” yang memiliki arti junior menggambarkan kita sebagai anak SMK yang baru masuk ke jenjang kejuruan, sedangkan “DEV” merupakan singkatan kalimat “Development” yang berarti  pengembang menunjukkan bahwa kita sebagai kelompok yang akan mengembangkan inovasi dan teknologi untuk menunjang kehidupan sehari-hari.',context),
-                buildTextHighlight('Kelompok kami beranggotakan 4 orang, setiap anggota memiliki keahlian masing masing, UI/UX Designers, Developer, IDEA Creator dengan begitu kita bekerja sama dengan keahlian kita untuk menciptakan inovasi teknologi yang bermanfaat, selain itu anggota kelompok kita berasal dari berbagai daerah, ada yang dari Malang, Tulungagung, Kertosono dan Kediri. Mereka juga memiliki cerita masing masing yang membuat mereka bekerjasama untuk membentuk kelompok ini.',context),
-                buildTextHighlight('TEKS DAN GAMBAR DIATAS HANYALAH UNTUK TES', context)
+                buildFullImage('assets/images/dummy/0.jpg', context),
+                buildText(
+                    'Kouhai dev terinspirasi dari kalimat jepang  “こうはい” yang dibaca “kouhai” yang memiliki arti junior menggambarkan kita sebagai anak SMK yang baru masuk ke jenjang kejuruan, sedangkan “DEV” merupakan singkatan kalimat “Development” yang berarti  pengembang menunjukkan bahwa kita sebagai kelompok yang akan mengembangkan inovasi dan teknologi untuk menunjang kehidupan sehari-hari.',
+                    context),
+                buildTextHighlight(
+                    'Kelompok kami beranggotakan 4 orang, setiap anggota memiliki keahlian masing masing, UI/UX Designers, Developer, IDEA Creator dengan begitu kita bekerja sama dengan keahlian kita untuk menciptakan inovasi teknologi yang bermanfaat, selain itu anggota kelompok kita berasal dari berbagai daerah, ada yang dari Malang, Tulungagung, Kertosono dan Kediri. Mereka juga memiliki cerita masing masing yang membuat mereka bekerjasama untuk membentuk kelompok ini.',
+                    context),
+                buildTextHighlight(
+                    'TEKS DAN GAMBAR DIATAS HANYALAH UNTUK TES', context)
               ],
             ),
           ),
@@ -74,31 +79,41 @@ class _ReaderState extends State<Reader> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  assetData[0].getJudul(),
-                  style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'Moserat',
-                      color: notifier.darkTheme
-                          ? Colors.white
-                          : Color(0xFFEC1B34)),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    assetData[0].getJudul(),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w900,
+                        fontFamily: 'Moserat',
+                        color: notifier.darkTheme
+                            ? Colors.white
+                            : Color(0xFFEC1B34)),
+                  ),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Penulis ',
-                      style: TextStyle(fontFamily: 'Moserat'),
-                    ),
-                    Text(
-                      assetData[0].getPenulis(),
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Moserat',
-                          color: notifier.darkTheme
-                              ? Color(0xFFEC1B34)
-                              : Colors.black),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Penulis ',
+                        style: TextStyle(fontFamily: 'Moserat', fontSize: 11),
+                      ),
+                      Text(
+                        assetData[0].getPenulis(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 11,
+                            fontFamily: 'Moserat',
+                            color: notifier.darkTheme
+                                ? Color(0xFFEC1B34)
+                                : Colors.black),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

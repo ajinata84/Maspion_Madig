@@ -170,7 +170,7 @@ class _BerandaState extends State<Beranda> {
                                         ),
                                         Text('$penulis',
                                             style: TextStyle(
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.w700,
                                                 fontFamily: 'Moserat',
                                                 fontSize: 11,
                                                 color: notifier.darkTheme
