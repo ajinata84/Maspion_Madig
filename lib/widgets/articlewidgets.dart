@@ -24,7 +24,7 @@ Widget buildFullImage(String imgPath, BuildContext context) {
       height: 200,
       width: MediaQuery.of(context).size.width * 0.89,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
           image:
               DecorationImage(image: AssetImage(imgPath), fit: BoxFit.cover)),
     ),
