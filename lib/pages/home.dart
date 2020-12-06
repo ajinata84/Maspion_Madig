@@ -81,7 +81,7 @@ class _BerandaState extends State<Beranda> {
       child: Consumer<ThemeNotifier>(
           builder: (context, ThemeNotifier notifier, child) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
           child: Container(
             height: 350,
             width: 318,
@@ -96,14 +96,14 @@ class _BerandaState extends State<Beranda> {
                     decoration: notifier.darkTheme
                         ? BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15)),
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10)),
                             color: Colors.white,
                             border: Border.all(color: Color(0xFF909090)))
                         : BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15)),
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10)),
                             color: Colors.red,
                             boxShadow: [
                               BoxShadow(
@@ -121,14 +121,14 @@ class _BerandaState extends State<Beranda> {
                     decoration: notifier.darkTheme
                         ? BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15)),
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
                             color: Colors.black,
                             border: Border.all(color: Color(0xFF909090)))
                         : BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15)),
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -141,7 +141,7 @@ class _BerandaState extends State<Beranda> {
                             ],
                           ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
                       child: Column(
                         children: [
                           Row(
@@ -154,17 +154,24 @@ class _BerandaState extends State<Beranda> {
                                     Text(
                                       '$title',
                                       style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 14,
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 18,
                                         fontFamily: 'Moserat',
                                       ),
                                     ),
                                     Row(
                                       children: [
-                                        Text('Penulis '),
+                                        Text(
+                                          'Penulis ',
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              fontFamily: 'Moserat'),
+                                        ),
                                         Text('$penulis',
                                             style: TextStyle(
-                                                fontWeight: FontWeight.w900,
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: 'Moserat',
+                                                fontSize: 11,
                                                 color: notifier.darkTheme
                                                     ? Color(0xFFEC1B34)
                                                     : Colors.black))
@@ -182,6 +189,8 @@ class _BerandaState extends State<Beranda> {
                                     },
                                     icon: Icon(
                                       EvaIcons.heartOutline,
+                                      size: 35,
+                                      color: Colors.grey[350],
                                     ),
                                   ),
                                   Text(
@@ -282,7 +291,7 @@ class _BerandaState extends State<Beranda> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: const EdgeInsets.only(top: 30.0, right: 30.0),
+        padding: const EdgeInsets.only(top: 10.0, right: 30.0, bottom: 40.0),
         child: Consumer<ThemeNotifier>(
             builder: (context, ThemeNotifier notifier, child) => IconButton(
                   iconSize: 30,
