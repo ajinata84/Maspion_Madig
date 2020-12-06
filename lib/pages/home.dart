@@ -33,46 +33,40 @@ class _BerandaState extends State<Beranda> {
       ),
       body: SafeArea(
         child: Center(
-          child: Column(
-            children: [
-              modeToggle(),
-              topText(),
-              Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: SizedBox(
-                    height: 350,
-                    child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
-                      itemCount: Articles.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (BuildContext context, int index) {
-                        assetData = Articles[index];
-                        return articleCardFull(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis());
-                      },
-                    ),
-                  ))
-            ],
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Container(
+              decoration: BoxDecoration(),
+              child: Column(
+                children: [
+                  modeToggle(),
+                  topText(),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0, vertical: 0),
+                      child: SizedBox(
+                        height: 400,
+                        child: ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: Articles.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (BuildContext context, int index) {
+                            assetData = Articles[index];
+                            return articleCardFull(
+                                index,
+                                assetData[0].getJudul(),
+                                assetData[0].getPenulis());
+                          },
+                        ),
+                      ))
+                ],
+              ),
+            ),
           ),
         ),
       ),
     );
   }
-  /*
-  ORIGINAL LISTVIEW
-  SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        articleCardFull(),
-                      ],
-                    ),
-                  ),
-                ),
-                */
 
   Widget articleCardFull(int index, String title, String penulis) {
     return GestureDetector(
@@ -84,23 +78,143 @@ class _BerandaState extends State<Beranda> {
                       index: index,
                     )));
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Container(
-          height: 350,
-          width: 318,
-          decoration: BoxDecoration(color: Colors.grey),
-          child: Center(
-            child: Column(
-              children: [
-                Text('index = $index'),
-                Text('judul = $title'),
-                Text('penulis = $penulis'),
-              ],
+      child: Consumer<ThemeNotifier>(
+          builder: (context, ThemeNotifier notifier, child) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 15),
+          child: Container(
+            height: 350,
+            width: 318,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    height: 210,
+                    decoration: notifier.darkTheme
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15)),
+                            color: Colors.white,
+                            border: Border.all(color: Color(0xFF909090)))
+                        : BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15)),
+                            color: Colors.red,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                  ),
+                  Container(
+                    height: 140,
+                    decoration: notifier.darkTheme
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15)),
+                            color: Colors.black,
+                            border: Border.all(color: Color(0xFF909090)))
+                        : BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15)),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 212,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '$title',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14,
+                                        fontFamily: 'Moserat',
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('Penulis '),
+                                        Text('$penulis',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w900,
+                                                color: notifier.darkTheme
+                                                    ? Color(0xFFEC1B34)
+                                                    : Colors.black))
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                              Column(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      print('like');
+                                    },
+                                    icon: Icon(
+                                      EvaIcons.heartOutline,
+                                    ),
+                                  ),
+                                  Text(
+                                    'index = $index',
+                                    style: TextStyle(fontSize: 12),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              'preview text',
+                              style: TextStyle(
+                                  color: Color(0xFF909090),
+                                  fontSize: 12,
+                                  fontFamily: 'Moserat'),
+                              textAlign: TextAlign.justify,
+                              maxLines: 4,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 
@@ -108,7 +222,7 @@ class _BerandaState extends State<Beranda> {
     return Consumer<ThemeNotifier>(
       builder: (context, ThemeNotifier notifier, child) {
         return Padding(
-          padding: const EdgeInsets.fromLTRB(40, 25, 0, 15),
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Align(
             alignment: Alignment.topLeft,
             child: SizedBox(
@@ -126,13 +240,13 @@ class _BerandaState extends State<Beranda> {
                             : Colors.black),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: Text(
                       'Kita Punya Sesuatu Untuk Kamu Baca.',
                       style: TextStyle(
                           fontFamily: 'Robot',
                           fontSize: 40,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w900,
                           color: notifier.darkTheme
                               ? Colors.white
                               : Color(0xFFEC1B34)),
@@ -158,6 +272,7 @@ class _BerandaState extends State<Beranda> {
   botSheetTentang() {
     scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text('work in progress'),
+      duration: Duration(milliseconds: 300),
     ));
   }
 
@@ -222,7 +337,7 @@ class _BerandaState extends State<Beranda> {
                       color:
                           notifier.darkTheme ? darkModeColor : lightModeColor,
                       fontWeight:
-                          isActive ? FontWeight.w600 : FontWeight.normal),
+                          isActive ? FontWeight.w900 : FontWeight.normal),
                 ),
               ),
               AnimatedPadding(

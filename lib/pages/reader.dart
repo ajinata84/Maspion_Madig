@@ -32,13 +32,14 @@ class _ReaderState extends State<Reader> {
         appBar(context),
         SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Padding(
+          child: Padding( 
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Column(
               children: [
                 buildFullImage('assets/images/dummy/0.jpg',context),
-                buildText('Maspion merupakan salah satu produk yang cukup legendaris di Indonesia. Orang-orang Indonesia akan selalu teringat dengan iklan seorang laki-laki blasteran Tionghoa-Indonesia, bernama Alim Markus, bersama artis Titiek Puspa dengan jargonnya: “Cintailah produk-produknya Indonesia.” Tak hanya Titie Puspa saja yang diajak menjadi bintang iklan Maspion, menurut buku 60 Tahun Jimly Asshiddiqie: Sosok, Kiprah dan Pemikiran (2016), mantan Ketua Mahkamah Konstitusi Jimly Asshiddiqie juga pernah ditawari membintangi iklan tersebut. Karena role modelnya adalah Titiek Puspa, Jimly pun tak keberatan untuk bilang: “Cintailah produk-produknya Indonesia.”',context),
-                buildTextHighlight('Tidak ada yang salah dengan ucapan itu, karena memang produk-produk Maspion diproduksi di Indonesia. Sejarah Maspion, boleh dibilang termasuk juga sejarah industri Indonesia. Seperti juga sejarah industri milik Gobel Panasonic, meski kalah tua.',context)
+                buildText('Kouhai dev terinspirasi dari kalimat jepang  “こうはい” yang dibaca “kouhai” yang memiliki arti junior menggambarkan kita sebagai anak SMK yang baru masuk ke jenjang kejuruan, sedangkan “DEV” merupakan singkatan kalimat “Development” yang berarti  pengembang menunjukkan bahwa kita sebagai kelompok yang akan mengembangkan inovasi dan teknologi untuk menunjang kehidupan sehari-hari.',context),
+                buildTextHighlight('Kelompok kami beranggotakan 4 orang, setiap anggota memiliki keahlian masing masing, UI/UX Designers, Developer, IDEA Creator dengan begitu kita bekerja sama dengan keahlian kita untuk menciptakan inovasi teknologi yang bermanfaat, selain itu anggota kelompok kita berasal dari berbagai daerah, ada yang dari Malang, Tulungagung, Kertosono dan Kediri. Mereka juga memiliki cerita masing masing yang membuat mereka bekerjasama untuk membentuk kelompok ini.',context),
+                buildTextHighlight('TEKS DAN GAMBAR DIATAS HANYALAH UNTUK TES', context)
               ],
             ),
           ),
