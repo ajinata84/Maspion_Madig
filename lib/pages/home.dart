@@ -141,7 +141,8 @@ class _BerandaState extends State<Beranda> {
                             ],
                           ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25.0, vertical: 13),
                       child: Column(
                         children: [
                           Row(
@@ -152,7 +153,7 @@ class _BerandaState extends State<Beranda> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '$title',
+                                      'Raja Industri Rumah Tangga Indonesia',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
                                         fontSize: 18,
@@ -231,7 +232,7 @@ class _BerandaState extends State<Beranda> {
     return Consumer<ThemeNotifier>(
       builder: (context, ThemeNotifier notifier, child) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
           child: Align(
             alignment: Alignment.topLeft,
             child: SizedBox(
@@ -291,7 +292,7 @@ class _BerandaState extends State<Beranda> {
     return Align(
       alignment: Alignment.topRight,
       child: Padding(
-        padding: const EdgeInsets.only(top: 10.0, right: 30.0, bottom: 40.0),
+        padding: const EdgeInsets.only(top: 5.0, right: 30.0, bottom: 30.0),
         child: Consumer<ThemeNotifier>(
             builder: (context, ThemeNotifier notifier, child) => IconButton(
                   iconSize: 30,
