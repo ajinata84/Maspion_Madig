@@ -48,7 +48,7 @@ class _BerandaState extends State<Beranda> {
                         height: 400,
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
-                          itemCount: 2,
+                          itemCount: Articles.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             assetData = Articles[index];
