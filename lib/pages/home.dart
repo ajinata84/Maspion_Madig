@@ -48,7 +48,7 @@ class _BerandaState extends State<Beranda> {
                         height: 400,
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
-                          itemCount: Articles.length,
+                          itemCount: 2,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
                             assetData = Articles[index];
@@ -337,7 +337,7 @@ class _BerandaState extends State<Beranda> {
                       color:
                           notifier.darkTheme ? darkModeColor : lightModeColor,
                       fontWeight:
-                          isActive ? FontWeight.w900 : FontWeight.normal),
+                          isActive ? FontWeight.w700 : FontWeight.normal),
                 ),
               ),
               AnimatedPadding(
