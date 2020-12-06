@@ -38,20 +38,20 @@ class _BerandaState extends State<Beranda> {
               modeToggle(),
               topText(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: SizedBox(
-                  height: 350,
-                  child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
-                    itemCount: Articles.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index){
-                      assetData = Articles[index];
-                      return articleCardFull(index, assetData[0].getJudul(),assetData[0].getPenulis());
-                    },
-                  ),
-                )
-              )
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: SizedBox(
+                    height: 350,
+                    child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      itemCount: Articles.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (BuildContext context, int index) {
+                        assetData = Articles[index];
+                        return articleCardFull(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis());
+                      },
+                    ),
+                  ))
             ],
           ),
         ),
@@ -77,17 +77,19 @@ class _BerandaState extends State<Beranda> {
   Widget articleCardFull(int index, String title, String penulis) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-                  CupertinoPageRoute(builder: (context) => Reader(index: index,)));
+        Navigator.push(
+            context,
+            CupertinoPageRoute(
+                builder: (context) => Reader(
+                      index: index,
+                    )));
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Container(
           height: 350,
           width: 318,
-          decoration: BoxDecoration(
-            color: Colors.grey
-          ),
+          decoration: BoxDecoration(color: Colors.grey),
           child: Center(
             child: Column(
               children: [
@@ -106,7 +108,7 @@ class _BerandaState extends State<Beranda> {
     return Consumer<ThemeNotifier>(
       builder: (context, ThemeNotifier notifier, child) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: const EdgeInsets.fromLTRB(40, 25, 0, 15),
           child: Align(
             alignment: Alignment.topLeft,
             child: SizedBox(
@@ -124,13 +126,13 @@ class _BerandaState extends State<Beranda> {
                             : Colors.black),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
                     child: Text(
                       'Kita Punya Sesuatu Untuk Kamu Baca.',
                       style: TextStyle(
                           fontFamily: 'Robot',
                           fontSize: 40,
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w800,
                           color: notifier.darkTheme
                               ? Colors.white
                               : Color(0xFFEC1B34)),
@@ -147,20 +149,18 @@ class _BerandaState extends State<Beranda> {
 
 // BERANTAKAN KAPAL PECAH
   botSheetJelajah() {
-    scaffoldKey.currentState.showSnackBar(
-      SnackBar(
-        content: Text('work in progress'),
-        duration: Duration(milliseconds: 300),
-      )
-    );
+    scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text('work in progress'),
+      duration: Duration(milliseconds: 300),
+    ));
   }
+
   botSheetTentang() {
-    scaffoldKey.currentState.showSnackBar(
-      SnackBar(
-        content: Text('work in progress'),
-      )
-    );
+    scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text('work in progress'),
+    ));
   }
+
   closeSheet() {}
 
   Widget modeToggle() {
@@ -222,7 +222,7 @@ class _BerandaState extends State<Beranda> {
                       color:
                           notifier.darkTheme ? darkModeColor : lightModeColor,
                       fontWeight:
-                          isActive ? FontWeight.w900 : FontWeight.normal),
+                          isActive ? FontWeight.w600 : FontWeight.normal),
                 ),
               ),
               AnimatedPadding(
