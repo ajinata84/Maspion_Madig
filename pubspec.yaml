@@ -53,6 +53,8 @@ flutter:
     - assets/images/dummy/0.jpg
     - assets/images/background/light-home.png
     - assets/images/background/dark-home.png
+    - assets/images/splashscreen/logosplashx4.png
+    - assets/images/splashscreen/undersplashx4.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

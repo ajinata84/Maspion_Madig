@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:madicc/splash.dart';
 import 'package:madicc/theme.dart';
 import 'package:provider/provider.dart';
 import 'pages/pages.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         builder: (context, ThemeNotifier notifier, child) {
           return MaterialApp(
             theme: notifier.darkTheme ? dark : light,
-            home: Beranda(),
+            home: Splash(),
           );
         },
       ),
