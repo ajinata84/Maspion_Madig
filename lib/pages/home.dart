@@ -418,10 +418,11 @@ class _BerandaState extends State<Beranda> {
                               itemCount: 2,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (BuildContext context, int index) {
+                                var rngwoi = rng.nextInt(Articles.length);
                                 assetData =
-                                    Articles[rng.nextInt(Articles.length)];
+                                    Articles[rngwoi];
                                 return articleCardFull(
-                                    rng.nextInt(Articles.length),
+                                    rngwoi,
                                     assetData[0].getJudul(),
                                     assetData[0].getPenulis(),
                                     assetData[0].getImg(),
