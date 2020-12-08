@@ -55,7 +55,8 @@ flutter:
     - assets/images/about/
     - assets/images/background/
     - assets/images/splashscreen/
-    - assets/images/logo
+    - assets/images/dummy/0.jpg
+    - assets/images/logo/logo.png
     - assets/pdf/
   # assets:
   #   - images/a_dot_burr.jpeg

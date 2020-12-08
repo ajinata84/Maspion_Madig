@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -141,9 +143,13 @@ class _BerandaState extends State<Beranda> {
                           ),
                           genreItem('Semua', 0),
                           genreItem('Maspion IT', 1),
-                          genreItem('Inspirasi Covid', 2),
-                          genreItem('SMK Telkom Malang', 3),
-                          genreItem('Sponsor', 4),
+                          genreItem('Kouhai Dev', 2),
+                          genreItem('Inspirasi Covid', 3),
+                          genreItem('SMK Telkom Malang', 4),
+                          genreItem('Teknologi & Informasi', 5),
+                          genreItem('Produk Maspion Grup', 6),
+                          genreItem('Iswa Komputer', 7),
+                          genreItem('AstroTech', 8),
                         ],
                       ),
                     ),
@@ -215,6 +221,8 @@ class _BerandaState extends State<Beranda> {
   }
 
   Widget homeBody() {
+    var rng = new Random();
+    var rngNumber = rng.nextInt(Articles.length);
     return SafeArea(
       child: Consumer<ThemeNotifier>(
         builder: (context, ThemeNotifier notifier, child) {
@@ -243,15 +251,16 @@ class _BerandaState extends State<Beranda> {
                             height: 400,
                             child: ListView.builder(
                               physics: BouncingScrollPhysics(),
-                              itemCount: Articles.length,
+                              itemCount: 2,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (BuildContext context, int index) {
-                                assetData = Articles[index];
+                                assetData = Articles[rng.nextInt(Articles.length)];
                                 return articleCardFull(
-                                    index,
+                                    rng.nextInt(Articles.length),
                                     assetData[0].getJudul(),
                                     assetData[0].getPenulis(),
-                                    assetData[0].getImg());
+                                    assetData[0].getImg(),
+                                    assetData[0].getPreview());
                               },
                             ),
                           ))
@@ -267,7 +276,7 @@ class _BerandaState extends State<Beranda> {
   }
 
   Widget articleCardFull(
-      int index, String title, String penulis, String imgPath) {
+      int index, String title, String penulis, String imgPath, String preview) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -275,6 +284,7 @@ class _BerandaState extends State<Beranda> {
             CupertinoPageRoute(
                 builder: (context) => Reader(
                       index: index,
+                      scrWidth: MediaQuery.of(context).size.width,
                     )));
       },
       child: Consumer<ThemeNotifier>(
@@ -322,7 +332,7 @@ class _BerandaState extends State<Beranda> {
                           ),
                   ),
                   Container(
-                    height: 140,
+                    height: 120,
                     decoration: notifier.darkTheme
                         ? BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -388,35 +398,20 @@ class _BerandaState extends State<Beranda> {
                               ),
                               Spacer(),
                               Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      print('like');
-                                    },
-                                    icon: Icon(
-                                      EvaIcons.heartOutline,
-                                      size: 35,
-                                      color: Colors.grey[350],
-                                    ),
-                                  ),
-                                  Text(
-                                    'index = $index',
-                                    style: TextStyle(fontSize: 12),
-                                  )
-                                ],
+                                children: [],
                               )
                             ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
-                              'preview text',
+                              '$preview',
                               style: TextStyle(
                                   color: Color(0xFF909090),
                                   fontSize: 12,
                                   fontFamily: 'Moserat'),
                               textAlign: TextAlign.justify,
-                              maxLines: 4,
+                              maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                             ),
                           )
@@ -441,6 +436,7 @@ class _BerandaState extends State<Beranda> {
             CupertinoPageRoute(
                 builder: (context) => Reader(
                       index: index,
+                      scrWidth: MediaQuery.of(context).size.width,
                     )));
       },
       child: Consumer<ThemeNotifier>(
