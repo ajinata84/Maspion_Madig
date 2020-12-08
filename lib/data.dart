@@ -12,7 +12,13 @@ List Articles = [
   article6(),
   article7(),
   article8(),
-  article9()
+  article9(),
+  article10(),
+  article11(),
+  article12(),
+  article13(),
+  article14(),
+  article15(),
 ];
 
 List Genre1 = [article3(), article4()];
@@ -21,12 +27,12 @@ List Genre2 = [
   article2(),
 ];
 List Genre3 = [article5(), article6()];
-List Genre4 = [];
+List Genre4 = [article14(),article15()];
 List Genre5 = [article9()];
 List Genre6 = [article7(), article8()];
-List Genre7 = [];
-List Genre8 = [];
-List Genre9 = [];
+List Genre7 = [article12()];
+List Genre8 = [article13()];
+List Genre9 = [article10(),article11()];
 
 List<ArticleModel> article1() {
   List<ArticleModel> articleData = new List<ArticleModel>();
@@ -338,7 +344,6 @@ List<ArticleModel> article8() {
     children: [
       buildText(
           'Adapun rice cooker ini, memiliki kapasitas 1.8 liter, menggunakan listrik sebesar 395 W/220 V, material luarnya dibuat dari plastik tahan panas dan bagian dalamnya ditutupi dengan bahan yang non-stick coating (permukaan anti lengket), Desain luarnya yang bagus juga menambah nilai perspektif dari rice cooker ini, dengan harga kisaran Rp.400.000-an dengan kelebihan yang dimiliki rice cooker ini sangat direkomendasikan untuk dibeli sebagai penyandang pangan kehidupan sehari-hari.'),
-      
     ],
   ));
   articleData.add(articleModel);
@@ -351,8 +356,7 @@ List<ArticleModel> article9() {
   List<ArticleModel> articleData = new List<ArticleModel>();
   ArticleModel articleModel = new ArticleModel();
 
-  articleModel.setJudul(
-      'AI Dapat Selamatkan Jutaan Jiwa Saat Pandemi');
+  articleModel.setJudul('AI Dapat Selamatkan Jutaan Jiwa Saat Pandemi');
   articleModel.setPenulis('Jurnal KOUHAI');
   articleModel.setImg(
       'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg');
@@ -387,28 +391,28 @@ List<ArticleModel> article9() {
 
   return articleData;
 }
+
 List<ArticleModel> article10() {
   List<ArticleModel> articleData = new List<ArticleModel>();
   ArticleModel articleModel = new ArticleModel();
 
-  articleModel.setJudul(
-      'AI Dapat Selamatkan Jutaan Jiwa Saat Pandemi');
+  articleModel.setJudul('Rela Datangi Rumah Murid Bantu Belaja');
   articleModel.setPenulis('Jurnal KOUHAI');
   articleModel.setImg(
-      'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg');
+      'assets/images/article/KisahInspiratif/RelaDatangiRumahMuridBantuBelajar/image1.jpg');
   articleModel.setPreview(
-      'PArtificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.');
+      'Mohammad Yenri Shufianto dari SDN Mangunsari Kecamatan Kedungwaru selaku pengajar kelas VI, tetap berupaya untuk tetap mengedepankan pendidikan murid-muridnya yang berjumlah 24 orang');
   articleModel.setGenre(4);
   articleModel.setContent(Column(
     children: [
       buildFullImage(
-          'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg'),
+          'assets/images/article/KisahInspiratif/RelaDatangiRumahMuridBantuBelajar/image1.jpg'),
       buildText(
-          'Artificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.'),
+          'Selaku guru honorer, ia rela menyempatkan waktunya kurang lebih 4 jam dalam sehari untuk mengunjungi rumah anak didiknya (home visit) hanya untuk membantu muridnya belajar (KBM). Kegiatan belajar mengajar di sekolah hampir sama dengan kegiatan belajar mengajar yang dilakukan Yenri. Hanya saja, ada pengurangan murid karena memang rumah bukan tempat yang optimal untuk melakukan kegiatan belajar mengajar. Tampak hanya tujuh murid di rumah suatu siswa dengan mengenakan standar new normal.'),
       buildText(
-          'Artificial Intelligence atau kecerdasan buatan adalah sistem komputer yang mampu melakukan tugas-tugas yang biasanya membutuhkan kecerdasan manusia. Teknologi ini dapat membuat keputusan dengan cara menganalisis dan menggunakan data yang tersedia di dalam sistem. Proses yang terjadi dalam Artificial Intelligence mencakup learning, reasoning, dan self-correction. Proses ini mirip dengan manusia yang melakukan analisis sebelum memberikan keputusan.'),
+          'Meskipun sarana yang kurang memadai, para murid tetap giat dalam belajar, kegiatan belajar mengajar tersebut hanya memiliki papan tulis kecil, tidak ada meja dan kursi. Bahkan, para siswa juga bercanda ria di tengah sulitnya akses pendidikan saat ini.'),
       buildText(
-          'aSeorang fisikawan Amerika Serikat, Michio Kaku mengklaim Pandemi Covid 19 dapat diakhiri dengan kecerdasan buatan atau artificial intelligence (AI). Hal tersebut dinyatakan Michio Kaku dalam acara Asosiasi profesional layanan keuangan internasional Million Dollar Round Table (MDRT) Virtual Event 2020 yang berlangsung pada 3-8 Agustus 2020. AI dinyatakan dapat menjadi kunci penanganan Pandemi Covid-19 dengan mengenali pola penyebaran dan memberikan peringatan dini kepada fasilitas kesehatan.'),
+          'Yenri mengatakan bahwa alasannya membagi 24 anak menjadi 4 grup adalah mengurangi kepadatan dan agar belajar mengajar menjadi lebih efektif meskipun di rumah.'),
     ],
   ));
   articleData.add(articleModel);
@@ -417,9 +421,237 @@ List<ArticleModel> article10() {
   articleModel.setContent(Column(
     children: [
       buildText(
-          'Menurut Michio AI mampu mengenali pola dan data lebih baik daripada manusia, tepatnya dengan mampu memberi peringatan dini kepada rumah sakit, fasilitas kesehatan lainnya, dan regulator kesehatan bahwa outbreak akan segera terjadi di suatu daerah. "Ini memiliki potensi menyelamatkan ribuan orang," jelas Michio. Artinya, apabila wabah Covid-19 bisa dideteksi dini, korban tidak akan sebanyak sekarang. Terlebih, pelacakan kontak dengan diagnosis pola dan data yang selama ini dilakukan manual oleh manusia tidak efektif dan efisien.'),
+          'Menurut Yenri, pelaksanaan home visit ini adalah salah satu bentuk kepeduliannya kepada siswa yang akan naik sekolah ke jenjang yang lebih tinggi yaitu Sekolah Menengah Pertama (SMP) pada tahun ajaran baru mendatang. Maka, peran guru disaat para murid ingin transisi ini harus diawasi secara intensif khususnya pelajaran yang akan diujikan seperti matematika.'),
+      buildFullImage(
+          'assets/images/article/BankMaspion/PerkuatLayananDigital,BankMaspionBekerjasamaDenganBankThailand/image2.jpeg'),
       buildText(
-          'Michio juga mengamati bahwa ada ketidakseragaman prosedur dari tenaga kesehatan dan relawan yang harus direkrut dan dilatih, sehingga hal ini mengurangi akurasi data dan memakan waktu yang amat lama. Oleh karena itulah AI dianggap bisa membantu karena AI dapat melakukan pekerjaan diatas lebih cepat dan akurat. Contohnya seperti termometer yang tersambung dengan internet dapat menjadi sumber data bagi AI untuk menyimpulkan apakah penyebaran wabah mulai terjadi di sebuah daerah. Selain itu AI juga dapat bekerja sama dengan data pencarian pengguna internet dari mesin pencarian seperti Google, untuk mengenali pola meningkatnya gejala Covid-19 di daerah tertentu. Dengan demikian, penggunaan AI harus berskala global akan dapat membantu otoritas kesehatan negara-negara di dunia untuk bekerja sama menangani wabah Covid-19 dan wabah-wabah lain di masa depan.'),
+          'Namun, seharusnya home visit ini dilakukan tidak hanya anak kelas VI saja, anak kelas I sampai V pun juga perlu metode belajar mengajar seperti ini ujarnya. Home visit ini tidak semena-mena memaksakan keinginan Yenri, sebelum berkunjung ke rumah suatu siswa Yenri izin dahulu kepada wali kelas murid tersebut. Malahan para wali kelas itu membutuhkan kegiatan belajar mengajar yang seperti ini, serta pembelajaran online yang dinilai kurang efektif.'),
+      buildText(
+          'Bahkan saking antusiasnya para murid ingin belajar, sampai-sampai ada salah satu murid yang mengikuti pembelajaran home visit ini menggunakan seragam sekolah.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article11() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel
+      .setJudul('Bagi Bahan Pangan Gratis Bagi Warga Terdampak Pandemi');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/KisahInspiratif/BagiBahanPanganGratisBagiWargaTerdampakPandemi/image1.jpg');
+  articleModel.setPreview(
+      'Dampak yang terjadi pada masa pandemi ini sangatlah buruk. Di Yogyakarta, dampak yang langsung terasa oleh masyarakat yang mendapat pemutusan hubungan kerja (PHK), diberi pesangon yang tidak layak. Bahkan, tidak terjadi di Yogyakarta saja, tetapi banyak kota-kota yang melakukan hal serupa');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/KisahInspiratif/BagiBahanPanganGratisBagiWargaTerdampakPandemi/image1.jpg'),
+      buildText(
+          'Dampak yang terjadi pada masa pandemi ini sangatlah buruk. Di Yogyakarta, dampak yang langsung terasa oleh masyarakat yang mendapat pemutusan hubungan kerja (PHK), diberi pesangon yang tidak layak. Bahkan, tidak terjadi di Yogyakarta saja, tetapi banyak kota-kota yang melakukan hal serupa'),
+      buildText(
+          'Kemudian ada warga berasal dari Sleman bernama Ardiati tergerak hatinya untuk memberi bantuan kepada masyarakat, terutama orang terdekat (tetangga). Hal yang dilakukan Ardiati untuk membantu orang sekitarnya adalah dengan menggantungkan bahan sayur-sayuran di dalamnya secara gratis.'),
+      buildText(
+          '"Kegiatan ini sudah kami mulai sejak 7 April lalu. Saya sempat berdiskusi dengan anak saya untuk melakukan hal ini. Ada beberapa tetangga yang di-PHK dan dirumahkan, tapi kita tidak tahu apakah orang-orang ini masih memiliki uang untuk kebutuhan hidup," ungkap Ardiati, Rabu (28/4/2020).'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Kegiatan ini dimulai dengan menggantung kresek berisi 2 mie instan, 2 telur dan beberapa gula jawa.  Bahkan sempat berdebat dengan anaknya saat memberikan kebutuhan gratis tersebut.'),
+      buildFullImage(
+          'assets/images/article/KisahInspiratif/BagiBahanPanganGratisBagiWargaTerdampakPandemi/image2.jpg'),
+      buildText(
+          'Awalnya, Ardiati menggunakan dana pribadinya sebesar 200 ribu rupiah, dia memanfaatkan uang tersebut untuk membeli bahan pokok seperti sayur-sayuran, telur, beras, dan sebagainya. Satu hari hanya dibagikan satu waktu, antara pagi, siang, dan sore. Namun, seiring waktu berjalan tetangga Ardiati juga ikut menyumbangkan beberapa bahan pokok. Prinsip yang dijalankan oleh Ardiati adalah tetangga bantu tetangga. Artinya, orang yang membantu kesulitan manusia lain adalah orang yang ada di dekatnya.'),
+      buildText(
+          'Di saat bulan puasa, Ardiati mengganti waktu menggantungkan bahan pokok. Dia mengganti disaat hampir berbuka (sore), tetapi tetangga yang mengambilnya tidak terlalu banyak. Dia juga sempat . Akhirnya,  Ardiati kembali menggantung bahan pokok di waktu biasanya. "Saat ini banyak amanah yang saya pegang, donasi dan bantuan dari orang lain berdatangan. Harapannya saya bisa istiqomah terus menebar kegiatan positif ini," ungkap Ardiati.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article12() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel
+      .setJudul('Bikin Melongo, Iswa Computer Menghadirkan PC Rakitan Dewa');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/IswaComputer/BikinMelongo,IswaComputerMenghadirkanPCrakitanDewa/image1.jpg');
+  articleModel.setPreview(
+      'PC Gaming, istilah yang selalu kita dengar saat kita membicarakan game yang kita mainkan setiap hari, pengertian PC Gaming sendiri adalah kumpulan perangkat/komponen yang berspesifikasi berkekuatan tinggi dan dispesifikasikan untuk bidang grafis, dalam dunia komputer, Game sendiri membutuhkan banyak sumber daya pada komponen PC.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/IswaComputer/BikinMelongo,IswaComputerMenghadirkanPCrakitanDewa/image1.jpg'),
+      buildText(
+          'PC Gaming, istilah yang selalu kita dengar saat kita membicarakan game yang kita mainkan setiap hari, pengertian PC Gaming sendiri adalah kumpulan perangkat/komponen yang berspesifikasi berkekuatan tinggi dan dispesifikasikan untuk bidang grafis, dalam dunia komputer, Game sendiri membutuhkan banyak sumber daya pada komponen PC.'),
+      buildText(
+          'Dalam hal gaming komponen Graphics card adalah komponen yang sangat penting dalam  mengerjakan bidang grafis, semakin hari teknologi visual game semakin bagus, hal ini juga membuat harga komponen komputer menjadi mahal, harga PC Gaming bisa sampai 20-30 jutaan tergantung spesifikasinya.'),
+      buildText(
+          'Maka dari itu Iswa Komputer meluncurkan produk PC GAMING HIGHCLASS, adalah PC Rakitan yang berspesifikasi tinggi dengan teknologi baru dapat menunjang bidang grafis lebih tepatnya game, tujuan Iswa Komputer meluncurkan produk ini dengan harga merakyat,'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/IswaComputer/BikinMelongo,IswaComputerMenghadirkanPCrakitanDewa/image2.jpg'),
+      buildText(
+          'Cukup dengan budget dibawah 20 jutaan kita dapat menikmati PC Gaming yang berspesifikasi seperti berikut,'),
+      buildText(
+          'Intel Core i7 8700\nRAM 16GB DDR4\nHarddisk 1TB\nSsd 240Gb\nVGA Radeon Rx570 8GB\nCasing gaming COUGAR DX TRANSFORMER\nFan PROC RGB SUPER FLOW/n'),
+      buildText(
+          'PC Rakitan dengan spesifikasi tersebut dapat bertahan dengan teknologi visual game selama 5 tahun ke depan.'),
+      buildText(
+          'Di Iswa Komputer juga menyediakan banyak jenis komputer lain, PC Rakitan, Gaming, Kantoran dan masih banyak lagi, dengan harga yang terjangkau dan terpercaya dapat direkomendasikan Iswa Komputer  bagi kalian yang ingin merakit komputer atau membeli PC Gaming, kunjungi Iswa Komputer di Maspion IT, Maspion Square, Surabaya')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article13() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul('Mending Rakit PC, ke Astrotech Computer Aja');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/AstroTechComputer/MendingRakitPC,KeAstrotechComputerAja/image1.png');
+  articleModel.setPreview(
+      'Pada saat ini, kita hidup di zaman modernisasi, mencakup bidang ilmu pengetahuan dan teknologi. Manusia juga sangat bergantung kepada teknologi, hal ini lah yang menjadikan teknologi sebagai kebutuhan dasar masyarakat saat ini. Kebutuhan teknologi ini mencakup banyak kalangan usia, mulai dari orang tua hingga anak muda.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Pada saat ini, kita hidup di zaman modernisasi, mencakup bidang ilmu pengetahuan dan teknologi. Manusia juga sangat bergantung kepada teknologi, hal ini lah yang menjadikan teknologi sebagai kebutuhan dasar masyarakat saat ini. Kebutuhan teknologi ini mencakup banyak kalangan usia, mulai dari orang tua hingga anak muda.'),
+      buildText(
+          'Teknologi sekarang sangat dibutuhkan oleh setiap orang.baik tua maupun muda teknologi merupakan kebutuhan pokok wajib yang harus ada dalam kehidupan sehari-hari.'),
+      buildText(
+          'Seiring berkembangnya teknologi, maka semakin banyak orang yang memerlukan dan membutuhkan teknologi. Disini Astrotech Surabaya merupakan solusi dari kebanyakan orang yang tentang kebutuhan teknologi.'),
+      buildFullImage(
+          'assets/images/article/AstroTechComputer/MendingRakitPC,KeAstrotechComputerAja/image1.png'),
+      buildText(
+          'strotech Surabaya menjual banyak sekali hardware-hardware komputer, seperti SSD atau harddisk, VGA/GPU, Mouse, Mobo (motherboard), printer, laptop, notebook, webcam, bahkan Astrotech Surabaya juga menjual PC Custom/rakitan dengan harga yang bersaing')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Astrotech Surabaya terletak di mall Maspion Square Blok F16-20, Surabaya, Indonesia 60238. Tidak hanya melayani secara offline, Astrotech juga melayani secara online melalui salah satu ecommerce di indonesia.'),
+      buildText(
+          'Meskipun online, pelayanan yang diberikan sangatlah baik. dan memiliki rating 4,9 dengan 148 ulasan.'),
+      buildFullImage(
+          'assets/images/article/AstroTechComputer/MendingRakitPC,KeAstrotechComputerAja/image2.png'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article14() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul('Students Go To School, SMK TELKOM MALANG');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/SMKTelkomMalang/StudentsGoToSchool,SMKTelkomMalang/image1.jpg');
+  articleModel.setPreview(
+      'SMK Telkom Malang merupakan sekolah IT yang terkenal, karena memiliki banyak kegiatan luar sekolah dan tetap fokus terhadap pelajaran. Salah satu kegiatan luar sekolah SMK Telkom Malang ini adalah SGTS (Students Go To School).');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          '	SMK Telkom Malang merupakan sekolah IT yang terkenal, karena memiliki banyak kegiatan luar sekolah dan tetap fokus terhadap pelajaran. Salah satu kegiatan luar sekolah SMK Telkom Malang ini adalah SGTS (Students Go To School).'),
+      buildText(
+          'Students Go To School merupakan program tahunan yang dilakukan oleh siswa untuk mensosialisasikan informasi pendaftaran peserta didik baru se-Jawa Timur. Student Go To School dilakukan oleh anak-anak kelas X.'),
+      buildFullImage(
+          'assets/images/article/SMKTelkomMalang/StudentsGoToSchool,SMKTelkomMalang/image1.jpg'),
+      buildText(
+          'Mengapa kelas X? Karena mereka berkesempatan unjuk diri dan kemampuan atas keberhasilannya lolos seleksi dan tes SMK Telkom Sandhy Putra (julukan Smk Telkom Malang).'),
+      buildText(
+          'Para siswa yang berkontribusi di program Student Go To School ini biasanya bergabung dengan alumni asal masing-masing untuk mengunjungi SMP nya. Jika kekurangan siswa di SMP itu, maka sekolah akan membuat beberapa kelompok dengan sekolah yang dekat dengan mereka, misal satu kecamatan.'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/SMKTelkomMalang/StudentsGoToSchool,SMKTelkomMalang/image2.jpg'),
+      buildText(
+          'Sasaran program ini adalah seluruh SMP di kota asal seluruh siswa X. khususnya di kelas 9. Cara mereka menyampaikan SMK Telkom Malang memiliki banyak cara, ada yang memasuki kelas satu per satu dan ada juga yang langsung dikumpulkan menjadi satu di ruangan yang besar seperti aula. Hal seperti inilah yang membedakan sekolah ini dengan sekolah lainnya. Student Go To School juga program yang ditunggu-tunggu oleh siswa baru dan orang tuanya'),
+      buildText(
+          'Sekolah tidak semena-mena melepas siswa kembali ke SMP nya masing-masing, mereka juga dilatih untuk public speaking disertai pengarahan tata cara berkomunikasi. Mereka juga dibekali surat pengantar untuk diserahkan kepala sekolah SMP tersebut. Serta diberi uang untuk biaya transportasi tiap kelompok yang dibagikan.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article15() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul('Kelas Industri, SMK TELKOM MALANG');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/SMKTelkomMalang/KelasIndustri,SMKTelkomMalang/image1.jpg');
+  articleModel.setPreview(
+      'Selain kelas TEFA, SMK Telkom Malang juga mempunyai kelas eksklusif bernama kelas Industri. Kelas Industri adalah kelas yang memiliki kurikulum khusus dan pelajaran produktif yang diberikan langsung menuju ke arah kerja. Kelas Industri ini hanya dijalankan di kelas XII dari siswa terpilih.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Selain kelas TEFA, SMK Telkom Malang juga mempunyai kelas eksklusif bernama kelas Industri. Kelas Industri adalah kelas yang memiliki kurikulum khusus dan pelajaran produktif yang diberikan langsung menuju ke arah kerja. Kelas Industri ini hanya dijalankan di kelas XII dari siswa terpilih.'),
+      buildText(
+          'Kerja sama SMK Telkom Malang dengan DU/DI (Dunia Usaha/Dunia Industri). Tidak hanya untuk menjembatani proses rekrutmen dari dunia kerja, tetapi juga pada arah pengembangan kurikulum satuan pendidikan dan kelas kerja sama.'),
+      buildFullImage(
+          'assets/images/article/SMKTelkomMalang/KelasIndustri,SMKTelkomMalang/image1.jpg'),
+      buildText(
+          'Program belajar ini dibimbing langsung oleh pengajar dari dunia industri sehingga jika sudah lulus, maka siswa memiliki kesempatan besar untuk direktur ke perusahaan mereka. Ada beberapa DU/DI yang memang dari dulu sudah menjalin kerjasama dengan sekolah ini dalam bentuk kelas industri adalah Telkom Akses Indonesia dan Huawei Indonesia.'),
+      buildText(
+          'Kelas industri juga memberikan beberapa benefit selain pengalaman kerja, seperti beasiswa yang diberikan Kelas Industri PT. Telkom Indonesia. Setiap masing-masing siswa yang masuk kelas industri diberi uang 2 juta oleh PT. Telkom Indonesia. '),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Hubin SMK Telkom Malang menjalin banyak kerjasama dengan pihak eksternal yang dapat mendukung pengembangan siswa SMK Telkom Malang. Kerjasama yang terjalin meliputi kerjasama dengan perguruan tinggi atau DU/DI. Terdapat beberapa DU / DI di bidang TI bertaraf Nasional maupun Internasional yang sudah MOU dengan SMK Telkom sampai saat ini.Bentuk Kerja sama dengan Industri diantaranya:'),
+      buildText(
+          'Recruitment, Praktek kerja industri, Kelas Industri, Beasiswa Ikatan Dinas, Kelas Tefa (Teaching Factory)'),
+      buildText(
+          'SMK Telkom Malang telah membangun kerja sama dengan beberapa perguruan tinggi terkemuka baik swasta maupun negeri untuk memfasilitasi lulusan yang memang memiliki minat untuk melanjutkan studi di bangku kuliah')
     ],
   ));
   articleData.add(articleModel);
