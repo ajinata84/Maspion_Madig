@@ -10,7 +10,8 @@ import '../theme.dart';
 class Reader extends StatefulWidget {
   var index;
   var scrWidth;
-  Reader({this.index, this.scrWidth});
+  List genre;
+  Reader({this.index, this.scrWidth,this.genre});
 
   @override
   _ReaderState createState() => _ReaderState();
@@ -26,7 +27,7 @@ class _ReaderState extends State<Reader> {
   @override
   void initState() {
     super.initState();
-    assetData = Articles[widget.index];
+    assetData = widget.genre[widget.index];
     _pageController = PageController(initialPage: 0);
   }
 

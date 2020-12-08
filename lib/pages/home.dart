@@ -71,7 +71,7 @@ class _BerandaState extends State<Beranda> {
     return SafeArea(
         child: Center(
       child: Column(
-        children: [Text('oi')],
+        children: [Text('WORK IN PROGRESS')],
       ),
     ));
   }
@@ -96,31 +96,31 @@ class _BerandaState extends State<Beranda> {
                         assetData = Articles[index];
 
                         return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg());
+                            assetData[0].getPenulis(), assetData[0].getImg(),Articles);
                       }
                       if (_selectedGenreIndex == 1) {
                         assetData = Genre1[index];
 
                         return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg());
+                            assetData[0].getPenulis(), assetData[0].getImg(),Genre1);
                       }
                       if (_selectedGenreIndex == 2) {
                         assetData = Genre2[index];
 
                         return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg());
+                            assetData[0].getPenulis(), assetData[0].getImg(),Genre2);
                       }
                       if (_selectedGenreIndex == 3) {
                         assetData = Genre3[index];
 
                         return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg());
+                            assetData[0].getPenulis(), assetData[0].getImg(),Genre3);
                       }
                       if (_selectedGenreIndex == 4) {
                         assetData = Genre4[index];
 
                         return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg());
+                            assetData[0].getPenulis(), assetData[0].getImg(),Genre4);
                       }
                     },
                   ),
@@ -144,7 +144,7 @@ class _BerandaState extends State<Beranda> {
                           genreItem('Semua', 0),
                           genreItem('Maspion IT', 1),
                           genreItem('Kouhai Dev', 2),
-                          genreItem('Inspirasi Covid', 3),
+                          genreItem('Bank Maspion', 3),
                           genreItem('SMK Telkom Malang', 4),
                           genreItem('Teknologi & Informasi', 5),
                           genreItem('Produk Maspion Grup', 6),
@@ -381,7 +381,9 @@ class _BerandaState extends State<Beranda> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      assetData[0].getJudul(),
+                                      '$title',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
                                         fontSize: 18,
@@ -441,7 +443,7 @@ class _BerandaState extends State<Beranda> {
     );
   }
 
-  Widget articleCard(int index, String title, String penulis, String imgPath) {
+  Widget articleCard(int index, String title, String penulis, String imgPath, List genre) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -449,6 +451,7 @@ class _BerandaState extends State<Beranda> {
             CupertinoPageRoute(
                 builder: (context) => Reader(
                       index: index,
+                      genre: genre,
                       scrWidth: MediaQuery.of(context).size.width,
                     )));
       },
@@ -533,6 +536,8 @@ class _BerandaState extends State<Beranda> {
                                   children: [
                                     Text(
                                       assetData[0].getJudul(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
                                         fontSize: 18,
@@ -617,22 +622,6 @@ class _BerandaState extends State<Beranda> {
       },
     );
   }
-
-  botSheetJelajah() {
-    scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text('work in progress'),
-      duration: Duration(milliseconds: 300),
-    ));
-  }
-
-  botSheetTentang() {
-    scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text('work in progress'),
-      duration: Duration(milliseconds: 300),
-    ));
-  }
-
-  closeSheet() {}
 
   Widget modeToggle() {
     return Align(
