@@ -10,6 +10,22 @@ import 'package:provider/provider.dart';
 import 'package:madicc/data.dart';
 import '../theme.dart';
 
+List imageIndexes = [
+  'assets/images/about/nail.jpg',
+  'assets/images/about/aji.jpg',
+  'assets/images/about/aqsyal.jpg',
+  'assets/images/about/naca.jpg',
+];
+
+List ourName = [
+  "Ahmadun Na'il \n\n",
+  'Prash Trisula Ajinata\n',
+  'Aqsyal Raihan Jamil\n',
+  'Kedar Anugerah Nacha Putra\n'
+];
+
+List ourRole = ['HIPSTER', 'HACKER', 'HIPSTER', 'HIPSTER'];
+
 class Beranda extends StatefulWidget {
   Beranda({Key key}) : super(key: key);
 
@@ -68,12 +84,128 @@ class _BerandaState extends State<Beranda> {
   // BERANTAKAN KAPAL PECAH
 
   Widget tentangBody() {
-    return SafeArea(
-        child: Center(
-      child: Column(
-        children: [Text('WORK IN PROGRESS')],
-      ),
-    ));
+    return Consumer<ThemeNotifier>(
+      builder: (context, ThemeNotifier notifier, child) {
+        return SafeArea(
+            child: Center(
+          child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                        color: notifier.darkTheme
+                            ? Color(0xFF3F3F3F)
+                            : Color(0xFFE5E5E5),
+                        borderRadius: BorderRadius.circular(10)),
+                    width: MediaQuery.of(context).size.width * 0.89,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: Container(
+                            height: 200,
+                            width: MediaQuery.of(context).size.width,
+                            child: Image(
+                                image: AssetImage(
+                                    'assets/images/splashscreen/logosplashx4.png')),
+                          ),
+                        ),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            child: Text(
+                              'adalah anak perusahaan MASPION GROUP yang bekerja dalam bidang IT untuk menunjang kebutuhan teknologi masyarakat Indonesia Timur, visi MASPION IT adalah mendorong penyerbaran informasi dengan cepat, sekaligus menumbuhkan ekonomi yang adil dan merata ',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                  fontFamily: 'Moserat',
+                                  fontWeight: FontWeight.w500),
+                            )),
+                        SizedBox(
+                          height: 20,
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  height: 250,
+                  child: ListView.builder(
+                      itemCount: ourName.length,
+                      scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return aboutCard(imageIndexes[index], ourName[index],
+                            ourRole[index]);
+                      }),
+                )
+              ],
+            ),
+          ),
+        ));
+      },
+    );
+  }
+
+  Widget aboutCard(String imgPath, String name, String role) {
+    return Consumer<ThemeNotifier>(
+      builder: (context, ThemeNotifier notifier, child) {
+        return Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  SizedBox(height: 80),
+                  Container(
+                    height: 100,
+                    width: 130,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: notifier.darkTheme
+                            ? Color(0xFF3F3F3F)
+                            : Color(0xFFE5E5E5)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Align(
+                        child: SizedBox(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                '$name',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontFamily: 'Moserat',fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                '$role',
+                                textAlign: TextAlign.center,style: TextStyle(fontFamily: 'Moserat',fontWeight: FontWeight.w500
+                              )
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('$imgPath')
+                    )
+                  ),
+                  height: 90,
+                  width: 90,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Widget jelajahBody() {
@@ -95,32 +227,52 @@ class _BerandaState extends State<Beranda> {
                       if (_selectedGenreIndex == 0) {
                         assetData = Articles[index];
 
-                        return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg(),Articles);
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Articles);
                       }
                       if (_selectedGenreIndex == 1) {
                         assetData = Genre1[index];
 
-                        return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg(),Genre1);
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre1);
                       }
                       if (_selectedGenreIndex == 2) {
                         assetData = Genre2[index];
 
-                        return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg(),Genre2);
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre2);
                       }
                       if (_selectedGenreIndex == 3) {
                         assetData = Genre3[index];
 
-                        return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg(),Genre3);
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre3);
                       }
                       if (_selectedGenreIndex == 4) {
                         assetData = Genre4[index];
 
-                        return articleCard(index, assetData[0].getJudul(),
-                            assetData[0].getPenulis(), assetData[0].getImg(),Genre4);
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre4);
                       }
                     },
                   ),
@@ -297,6 +449,7 @@ class _BerandaState extends State<Beranda> {
             CupertinoPageRoute(
                 builder: (context) => Reader(
                       index: index,
+                      genre: Articles,
                       scrWidth: MediaQuery.of(context).size.width,
                     )));
       },
@@ -443,7 +596,8 @@ class _BerandaState extends State<Beranda> {
     );
   }
 
-  Widget articleCard(int index, String title, String penulis, String imgPath, List genre) {
+  Widget articleCard(
+      int index, String title, String penulis, String imgPath, List genre) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
