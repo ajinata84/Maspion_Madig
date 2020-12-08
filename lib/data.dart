@@ -3,17 +3,27 @@ import 'package:madicc/models/articlemodel.dart';
 import 'package:madicc/pages/reader.dart';
 import 'package:madicc/widgets/articlewidgets.dart';
 
-List Articles = [article1(), article2(), article3(), article4(), article5(),article6()];
+List Articles = [
+  article1(),
+  article2(),
+  article3(),
+  article4(),
+  article5(),
+  article6(),
+  article7(),
+  article8(),
+  article9()
+];
 
 List Genre1 = [article3(), article4()];
 List Genre2 = [
   article1(),
   article2(),
 ];
-List Genre3 = [article5(),article6()];
+List Genre3 = [article5(), article6()];
 List Genre4 = [];
-List Genre5 = [];
-List Genre6 = [];
+List Genre5 = [article9()];
+List Genre6 = [article7(), article8()];
 List Genre7 = [];
 List Genre8 = [];
 List Genre9 = [];
@@ -210,7 +220,8 @@ List<ArticleModel> article6() {
   List<ArticleModel> articleData = new List<ArticleModel>();
   ArticleModel articleModel = new ArticleModel();
 
-  articleModel.setJudul('Perkuat Layanan Digital, Bank Maspion Bekerjasama Dengan Bank Thailand');
+  articleModel.setJudul(
+      'Perkuat Layanan Digital, Bank Maspion Bekerjasama Dengan Bank Thailand');
   articleModel.setPenulis('Jurnal KOUHAI');
   articleModel.setImg(
       'assets/images/article/BankMaspion/PerkuatLayananDigital,BankMaspionBekerjasamaDenganBankThailand/image1.jpg');
@@ -240,6 +251,175 @@ List<ArticleModel> article6() {
           'Dan alasan dari KBank mengakuisisi Bank Maspion karena Bank Maspion baru saha mencapai status Buku 2 dengan fokus layanan utama pada bisnis UKM dan perbankan digital sesuai dengan tujuan KBank. Selain itu menurut Presiden KBank Predee Daochai Maspion Group juga menjalankan cakupan bisnis di banyak sektor seperti sektor keuangan dan perbankan, ritel/grosir, logistik dan pengembangan properti, serta barang konsumsi, seperti peralatan listrik dan rumah tangga. Dan menurutnya melalui akuisisi tersebut KBank nantinya akan memperkuat kehadirannya sebagai Bank AEC +3 untuk melayani konektivitas bisnis di Asean, China, Jepang dan Korea Selatan melalui perluasan jaringan layanannya.'),
       buildText(
           'Dan alasan dari KBank mengakuisisi Bank Maspion karena Bank Maspion baru saha mencapai status Buku 2 dengan fokus layanan utama pada bisnis UKM dan perbankan digital sesuai dengan tujuan KBank. Selain itu menurut Presiden KBank Predee Daochai Maspion Group juga menjalankan cakupan bisnis di banyak sektor seperti sektor keuangan dan perbankan, ritel/grosir, logistik dan pengembangan properti, serta barang konsumsi, seperti peralatan listrik dan rumah tangga. Dan menurutnya melalui akuisisi tersebut KBank nantinya akan memperkuat kehadirannya sebagai Bank AEC +3 untuk melayani konektivitas bisnis di Asean, China, Jepang dan Korea Selatan melalui perluasan jaringan layanannya.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article7() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul(
+      'Songkong Pandemi, Maspion Produksi Sabun Batangan Pengganti Hand Sanitizer');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image1.jpg');
+  articleModel.setPreview(
+      'Pandemi COVID 19 masih belum bisa diprediksi kapan berakhir. korban yang terus bertambah tanpa henti. Untuk mencegah penularan pemerintah melakukan berbagai cara. melalui Satuan Tugas Penanganan Covid-19 juga gencar menyampaikan gerakan 3M. Yakni mengenakan masker, mencuci tangan dengan sabun, menjaga jarak dan jauhi kerumunan.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image1.jpg'),
+      buildText(
+          'Infeksi virus Corona disebut COVID-19 (Coronavirus Disease 2019) ditemukan di kota Wuhan, China pada akhir Desember 2019. Virus ini menular dengan sangat cepat dan telah menyebar ke hampir semua negara, termasuk Indonesia, hanya dalam waktu beberapa bulan. Virus ini menular melalui percikan dahak (droplet) dari saluran pernapasan, misalnya ketika berada di ruang tertutup yang ramai dengan sirkulasi udara yang kurang baik atau kontak langsung dengan droplet.'),
+      buildText(
+          'Hal tersebut membuat beberapa negara menerapkan kebijakan untuk memberlakukan lockdown dalam rangka mencegah penyebaran virus Corona. Di Indonesia sendiri, diberlakukan kebijakan Pembatasan Sosial Berskala Besar (PSBB) untuk menekan penyebaran virus ini.'),
+      buildFullImage(
+          'assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image2.jpg'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Akhirnya, PT Maspion Group yang dikenal dengan produk rumah tangga pun berpartisipasi dalam pencegahan penularan virus corona. Hal inilah yang kemudian menjadi dasar PT Maspion Group untuk membuat sabun khusus cuci tangan CT-19 untuk pencegahan Covid-19. Alasan PT Maspion Group membuat sabun khusus cuci tangan CT-19 karena produksi hand sanitizer akan semakin sulit, di dalam hand sanitizer itu sendiri mengandung 70 persen alkohol, banyaknya tingkat alkohol inilah yang membuat hand sanitizer terhitung sulit, langka dan mahal. '),
+      buildText(
+          '“Sabun batangan itu lebih efektif daripada hand sanitizer karena harganya yang sangat terjangkau dan murah”, kata Alim Markus. Kemudian PT Maspion Group berencana untuk memberikan secara cuma-cuma pada gugus tugas yang menangani covid di Indonesia dan dijual secara murah di pasaran.'),
+      buildFullImage(
+          'assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image3.jpg'),
+      buildText(
+          'Harga sabun CT-19 dengan berat 81 gram menurut Alim Markus harganya sangat terjangkau, hanya Rp1.600. Namun dengan harga yang murah, sabun CT-19 bisa digunakan 1.000 kali untuk mencuci tangan. Sabun batangan ini, tentu sangat membantu dalam memutus mata rantai penyebaran virus corona.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article8() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul('Maspion Magic Cooker Black Diamond');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/ProdukMaspionGroup/MaspionMagicCookerBlackDiamond/image.jpg');
+  articleModel.setPreview(
+      'PT Maspion Group, setiap terdengar nama perusahaan tersebut kita pasti teringat dengan peralatan-peralatan rumah tangga yang setiap hari kita gunakan. Namun, siapa sangka perusahaan sebesar ini dimulai dengan produk peralatan dapur pada tahun 1976.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Bicara tentang peralatan dapur, apa yang paling penting menurut kalian? Kalau dari segi efisiensinya, rice cooker atau penanak nasi adalah peralatan dapur yang paling efisien dari peralatan-peralatan lainnya. Mungkin sebagian besar orang hanya berpikir penanak nasi hanya untuk membuat nasi saja. Padahal jika kita manfaatkan lebih jauh, rice cooker ini bisa digunakan untuk beraneka ragam masakan, seperti sup, ayam ungkep, membuat kue, merebus mie instan dan masih banyak lagi'),
+      buildFullImage(
+          'assets/images/article/ProdukMaspionGroup/MaspionMagicCookerBlackDiamond/image.jpg'),
+      buildText(
+          'Dari banyak model rice cooker yang diproduksi, merek rice cooker Magic Cooker Black Diamond MRJ 1892 dari Maspion memiliki beberapa keunggulan dari merek-merek lainnya, antara lain sebagai berikut.'),
+      buildText(
+          ' - Terbuat dari alumunium murni yang diproses khusus. Sehingga panci jadi lebih kuat dan pemanasannya merata. Jadi, nasi atau makanan yang dimasak dengan Magic Cooker bisa matang sempurna dengan nutrisi yang terjaga.'),
+      buildText(
+          ' - Lapisan Black Diamond, yaitu lapisan dengan proses pemadatan dan pengerasan permukaan panci. Sehingga panci jadi tahan gores dan aman untuk makanan.'),
+      buildText(
+          ' - Pancinya NO PFOA (zat kimia berbahaya yang dapat menyebabkan kanker). Jadi lebih sehat. Panci anti gores ini tetap kuat walau dibersihkan hingga 100.000 kali.')
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Adapun rice cooker ini, memiliki kapasitas 1.8 liter, menggunakan listrik sebesar 395 W/220 V, material luarnya dibuat dari plastik tahan panas dan bagian dalamnya ditutupi dengan bahan yang non-stick coating (permukaan anti lengket), Desain luarnya yang bagus juga menambah nilai perspektif dari rice cooker ini, dengan harga kisaran Rp.400.000-an dengan kelebihan yang dimiliki rice cooker ini sangat direkomendasikan untuk dibeli sebagai penyandang pangan kehidupan sehari-hari.'),
+      
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+
+List<ArticleModel> article9() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul(
+      'AI Dapat Selamatkan Jutaan Jiwa Saat Pandemi');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg');
+  articleModel.setPreview(
+      'PArtificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg'),
+      buildText(
+          'Artificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.'),
+      buildText(
+          'Artificial Intelligence atau kecerdasan buatan adalah sistem komputer yang mampu melakukan tugas-tugas yang biasanya membutuhkan kecerdasan manusia. Teknologi ini dapat membuat keputusan dengan cara menganalisis dan menggunakan data yang tersedia di dalam sistem. Proses yang terjadi dalam Artificial Intelligence mencakup learning, reasoning, dan self-correction. Proses ini mirip dengan manusia yang melakukan analisis sebelum memberikan keputusan.'),
+      buildText(
+          'aSeorang fisikawan Amerika Serikat, Michio Kaku mengklaim Pandemi Covid 19 dapat diakhiri dengan kecerdasan buatan atau artificial intelligence (AI). Hal tersebut dinyatakan Michio Kaku dalam acara Asosiasi profesional layanan keuangan internasional Million Dollar Round Table (MDRT) Virtual Event 2020 yang berlangsung pada 3-8 Agustus 2020. AI dinyatakan dapat menjadi kunci penanganan Pandemi Covid-19 dengan mengenali pola penyebaran dan memberikan peringatan dini kepada fasilitas kesehatan.'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Menurut Michio AI mampu mengenali pola dan data lebih baik daripada manusia, tepatnya dengan mampu memberi peringatan dini kepada rumah sakit, fasilitas kesehatan lainnya, dan regulator kesehatan bahwa outbreak akan segera terjadi di suatu daerah. "Ini memiliki potensi menyelamatkan ribuan orang," jelas Michio. Artinya, apabila wabah Covid-19 bisa dideteksi dini, korban tidak akan sebanyak sekarang. Terlebih, pelacakan kontak dengan diagnosis pola dan data yang selama ini dilakukan manual oleh manusia tidak efektif dan efisien.'),
+      buildText(
+          'Michio juga mengamati bahwa ada ketidakseragaman prosedur dari tenaga kesehatan dan relawan yang harus direkrut dan dilatih, sehingga hal ini mengurangi akurasi data dan memakan waktu yang amat lama. Oleh karena itulah AI dianggap bisa membantu karena AI dapat melakukan pekerjaan diatas lebih cepat dan akurat. Contohnya seperti termometer yang tersambung dengan internet dapat menjadi sumber data bagi AI untuk menyimpulkan apakah penyebaran wabah mulai terjadi di sebuah daerah. Selain itu AI juga dapat bekerja sama dengan data pencarian pengguna internet dari mesin pencarian seperti Google, untuk mengenali pola meningkatnya gejala Covid-19 di daerah tertentu. Dengan demikian, penggunaan AI harus berskala global akan dapat membantu otoritas kesehatan negara-negara di dunia untuk bekerja sama menangani wabah Covid-19 dan wabah-wabah lain di masa depan.'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  return articleData;
+}
+List<ArticleModel> article10() {
+  List<ArticleModel> articleData = new List<ArticleModel>();
+  ArticleModel articleModel = new ArticleModel();
+
+  articleModel.setJudul(
+      'AI Dapat Selamatkan Jutaan Jiwa Saat Pandemi');
+  articleModel.setPenulis('Jurnal KOUHAI');
+  articleModel.setImg(
+      'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg');
+  articleModel.setPreview(
+      'PArtificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.');
+  articleModel.setGenre(4);
+  articleModel.setContent(Column(
+    children: [
+      buildFullImage(
+          'assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg'),
+      buildText(
+          'Artificial Intelligence atau AI merupakan salah satu teknologi yang sedang populer saat ini. Berbagai bidang industri sudah memanfaatkan teknologi tersebut, mulai dari kesehatan, keuangan, dan lain-lain.'),
+      buildText(
+          'Artificial Intelligence atau kecerdasan buatan adalah sistem komputer yang mampu melakukan tugas-tugas yang biasanya membutuhkan kecerdasan manusia. Teknologi ini dapat membuat keputusan dengan cara menganalisis dan menggunakan data yang tersedia di dalam sistem. Proses yang terjadi dalam Artificial Intelligence mencakup learning, reasoning, dan self-correction. Proses ini mirip dengan manusia yang melakukan analisis sebelum memberikan keputusan.'),
+      buildText(
+          'aSeorang fisikawan Amerika Serikat, Michio Kaku mengklaim Pandemi Covid 19 dapat diakhiri dengan kecerdasan buatan atau artificial intelligence (AI). Hal tersebut dinyatakan Michio Kaku dalam acara Asosiasi profesional layanan keuangan internasional Million Dollar Round Table (MDRT) Virtual Event 2020 yang berlangsung pada 3-8 Agustus 2020. AI dinyatakan dapat menjadi kunci penanganan Pandemi Covid-19 dengan mengenali pola penyebaran dan memberikan peringatan dini kepada fasilitas kesehatan.'),
+    ],
+  ));
+  articleData.add(articleModel);
+  articleModel = new ArticleModel();
+
+  articleModel.setContent(Column(
+    children: [
+      buildText(
+          'Menurut Michio AI mampu mengenali pola dan data lebih baik daripada manusia, tepatnya dengan mampu memberi peringatan dini kepada rumah sakit, fasilitas kesehatan lainnya, dan regulator kesehatan bahwa outbreak akan segera terjadi di suatu daerah. "Ini memiliki potensi menyelamatkan ribuan orang," jelas Michio. Artinya, apabila wabah Covid-19 bisa dideteksi dini, korban tidak akan sebanyak sekarang. Terlebih, pelacakan kontak dengan diagnosis pola dan data yang selama ini dilakukan manual oleh manusia tidak efektif dan efisien.'),
+      buildText(
+          'Michio juga mengamati bahwa ada ketidakseragaman prosedur dari tenaga kesehatan dan relawan yang harus direkrut dan dilatih, sehingga hal ini mengurangi akurasi data dan memakan waktu yang amat lama. Oleh karena itulah AI dianggap bisa membantu karena AI dapat melakukan pekerjaan diatas lebih cepat dan akurat. Contohnya seperti termometer yang tersambung dengan internet dapat menjadi sumber data bagi AI untuk menyimpulkan apakah penyebaran wabah mulai terjadi di sebuah daerah. Selain itu AI juga dapat bekerja sama dengan data pencarian pengguna internet dari mesin pencarian seperti Google, untuk mengenali pola meningkatnya gejala Covid-19 di daerah tertentu. Dengan demikian, penggunaan AI harus berskala global akan dapat membantu otoritas kesehatan negara-negara di dunia untuk bekerja sama menangani wabah Covid-19 dan wabah-wabah lain di masa depan.'),
     ],
   ));
   articleData.add(articleModel);

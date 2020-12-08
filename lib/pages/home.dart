@@ -274,6 +274,56 @@ class _BerandaState extends State<Beranda> {
                             assetData[0].getImg(),
                             Genre4);
                       }
+                      if (_selectedGenreIndex == 5) {
+                        assetData = Genre5[index];
+
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre5);
+                      }
+                      if (_selectedGenreIndex == 6) {
+                        assetData = Genre6[index];
+
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre6);
+                      }
+                      if (_selectedGenreIndex == 7) {
+                        assetData = Genre7[index];
+
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre7);
+                      }
+                      if (_selectedGenreIndex == 8) {
+                        assetData = Genre8[index];
+
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre8);
+                      }
+                      if (_selectedGenreIndex == 9) {
+                        assetData = Genre9[index];
+
+                        return articleCard(
+                            index,
+                            assetData[0].getJudul(),
+                            assetData[0].getPenulis(),
+                            assetData[0].getImg(),
+                            Genre9);
+                      }
                     },
                   ),
                 ),
@@ -302,6 +352,7 @@ class _BerandaState extends State<Beranda> {
                           genreItem('Produk Maspion Grup', 6),
                           genreItem('Iswa Komputer', 7),
                           genreItem('AstroTech', 8),
+                          genreItem('Inspirasi Pandemi',9)
                         ],
                       ),
                     ),
@@ -356,6 +407,9 @@ class _BerandaState extends State<Beranda> {
               }
               if (_selectedGenreIndex == 8) {
                 _jelajahItemCount = Genre8.length;
+              }
+              if (_selectedGenreIndex == 9) {
+                _jelajahItemCount = Genre9.length;
               }
             });
           },
