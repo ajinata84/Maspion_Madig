@@ -51,13 +51,39 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/illustration/
-    - assets/images/article/
+    - assets/images/article/AstroTechComputer/MendingRakitPC,KeAstrotechComputerAja/image1.png
+    - assets/images/article/AstroTechComputer/MendingRakitPC,KeAstrotechComputerAja/image2.png
+    - assets/images/article/BankMaspion/BankMaspionPerkuatUMKMKalaPandemiCOVID/image1.png
+    - assets/images/article/BankMaspion/PerkuatLayananDigital,BankMaspionBekerjasamaDenganBankThailand/image1.jpg
+    - assets/images/article/BankMaspion/PerkuatLayananDigital,BankMaspionBekerjasamaDenganBankThailand/image2.jpeg
+    - assets/images/article/IswaComputer/BikinMelongo,IswaComputerMenghadirkanPCrakitanDewa/image1.jpg
+    - assets/images/article/IswaComputer/BikinMelongo,IswaComputerMenghadirkanPCrakitanDewa/image2.jpg
+    - assets/images/article/KisahInspiratif/BagiBahanPanganGratisBagiWargaTerdampakPandemi/image1.jpg
+    - assets/images/article/KisahInspiratif/BagiBahanPanganGratisBagiWargaTerdampakPandemi/image2.jpg
+    - assets/images/article/KisahInspiratif/RelaDatangiRumahMuridBantuBelajar/image1.jpg
+    - assets/images/article/KisahInspiratif/RelaDatangiRumahMuridBantuBelajar/image2.jpg
+    - assets/images/article/MaspionIT/BersamaDenganSMK,MASPIONITMembangunUMKMJATIM/image1.jpeg
+    - assets/images/article/MaspionIT/BersamaDenganSMK,MASPIONITMembangunUMKMJATIM/image2.jpeg
+    - assets/images/article/MaspionIT/BersamaDenganSMK,MASPIONITMembangunUMKMJATIM/image3.jpg
+    - assets/images/article/MaspionIT/MaspionITMasaDepanIndonesia/image1.png
+    - assets/images/article/MaspionIT/MaspionITMasaDepanIndonesia/image2.jpg
+    - assets/images/article/MaspionIT/MaspionITMasaDepanIndonesia/image3.jpg
+    - assets/images/article/MaspionIT/MaspionITMasaDepanIndonesia/image4.jpg
+    - assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image1.jpg
+    - assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image2.jpg
+    - assets/images/article/ProdukMaspionGroup/SongkongPandemi,MaspionProduksiSabunBatanganPenggantiHandSanitizer/image3.jpg
+    - assets/images/article/SMKTelkomMalang/KelasIndustri,SMKTelkomMalang/image1.jpg
+    - assets/images/article/SMKTelkomMalang/StudentsGoToSchool,SMKTelkomMalang/image1.jpg
+    - assets/images/article/SMKTelkomMalang/StudentsGoToSchool,SMKTelkomMalang/image2.jpg
+    - assets/images/article/Teknologi&Informasi/AIDapatSelamatkanJutaanJiwaSaatPandemi/image1.jpg
+
     - assets/images/about/
     - assets/images/background/
     - assets/images/splashscreen/
     - assets/images/dummy/0.jpg
     - assets/images/logo/logo.png
     - assets/pdf/
+    
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

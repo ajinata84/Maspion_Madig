@@ -193,6 +193,18 @@ class _BerandaState extends State<Beranda> {
               if (_selectedGenreIndex == 4) {
                 _jelajahItemCount = Genre4.length;
               }
+              if (_selectedGenreIndex == 5) {
+                _jelajahItemCount = Genre5.length;
+              }
+              if (_selectedGenreIndex == 6) {
+                _jelajahItemCount = Genre6.length;
+              }
+              if (_selectedGenreIndex == 7) {
+                _jelajahItemCount = Genre7.length;
+              }
+              if (_selectedGenreIndex == 8) {
+                _jelajahItemCount = Genre8.length;
+              }
             });
           },
           child: Container(
@@ -254,7 +266,8 @@ class _BerandaState extends State<Beranda> {
                               itemCount: 2,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (BuildContext context, int index) {
-                                assetData = Articles[rng.nextInt(Articles.length)];
+                                assetData =
+                                    Articles[rng.nextInt(Articles.length)];
                                 return articleCardFull(
                                     rng.nextInt(Articles.length),
                                     assetData[0].getJudul(),
