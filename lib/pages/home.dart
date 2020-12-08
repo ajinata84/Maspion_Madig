@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:madicc/models/articlemodel.dart';
 import 'package:madicc/pages/pages.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,17 @@ class Beranda extends StatefulWidget {
 class _BerandaState extends State<Beranda> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedItemIndex = 1;
+  int _selectedGenreIndex = 0;
   List<ArticleModel> assetData = new List<ArticleModel>();
+  PageController _pageController;
+  int _jelajahItemCount = Articles.length;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _pageController = PageController(initialPage: 1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,49 +37,237 @@ class _BerandaState extends State<Beranda> {
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          buildNavbarItem('Jelajah', 0),
+          buildNavbarItem('Jelajah', 2),
           buildNavbarItem('Beranda', 1),
-          buildNavbarItem('Tentang', 2)
+          buildNavbarItem('Tentang', 0)
         ],
       ),
-      body: SafeArea(
+      body: SizedBox.expand(
+          child: PageView(
+        controller: _pageController,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (index) {
+          setState(() {
+            _selectedItemIndex = index;
+          });
+        },
+        children: [
+          tentangBody(),
+          homeBody(),
+          jelajahBody(),
+        ],
+      )),
+    );
+  }
+
+  // BERANTAKAN KAPAL PECAH
+  // BERANTAKAN KAPAL PECAH
+  // BERANTAKAN KAPAL PECAH
+  // BERANTAKAN KAPAL PECAH
+
+  Widget tentangBody() {
+    return SafeArea(
         child: Center(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Container(
-              decoration: BoxDecoration(),
-              child: Column(
-                children: [
-                  modeToggle(),
-                  topText(),
-                  Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 0),
-                      child: SizedBox(
-                        height: 400,
-                        child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: Articles.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) {
-                            assetData = Articles[index];
-                            return articleCardFull(
-                                index,
-                                assetData[0].getJudul(),
-                                assetData[0].getPenulis());
-                          },
-                        ),
-                      ))
-                ],
+      child: Column(
+        children: [Text('oi')],
+      ),
+    ));
+  }
+
+  Widget jelajahBody() {
+    return Consumer<ThemeNotifier>(
+      builder: (context, ThemeNotifier notifier, child) {
+        return SafeArea(
+            child: Center(
+          child: Stack(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height - 70,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: _jelajahItemCount,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (_selectedGenreIndex == 0) {
+                        assetData = Articles[index];
+
+                        return articleCard(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis(), assetData[0].getImg());
+                      }
+                      if (_selectedGenreIndex == 1) {
+                        assetData = Genre1[index];
+
+                        return articleCard(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis(), assetData[0].getImg());
+                      }
+                      if (_selectedGenreIndex == 2) {
+                        assetData = Genre2[index];
+
+                        return articleCard(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis(), assetData[0].getImg());
+                      }
+                      if (_selectedGenreIndex == 3) {
+                        assetData = Genre3[index];
+
+                        return articleCard(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis(), assetData[0].getImg());
+                      }
+                      if (_selectedGenreIndex == 4) {
+                        assetData = Genre4[index];
+
+                        return articleCard(index, assetData[0].getJudul(),
+                            assetData[0].getPenulis(), assetData[0].getImg());
+                      }
+                    },
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  color: notifier.darkTheme ? Colors.black : Colors.white,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    child: SingleChildScrollView(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 20,
+                          ),
+                          genreItem('Semua', 0),
+                          genreItem('Maspion IT', 1),
+                          genreItem('Inspirasi Covid', 2),
+                          genreItem('SMK Telkom Malang', 3),
+                          genreItem('Sponsor', 4),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ));
+      },
+    );
+  }
+
+  genreItem(String title, int index) {
+    bool isActive = index == _selectedGenreIndex;
+    Color darkModeColor = isActive ? Color(0xFFEC1A33) : Colors.transparent;
+    Color lightModeColor = Colors.transparent;
+    Color lightisActive = isActive ? Color(0xFFEC1A33) : Colors.grey;
+    Color darkisActive = isActive ? Colors.white : Colors.grey;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Consumer<ThemeNotifier>(
+          builder: (context, ThemeNotifier notifier, child) {
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedGenreIndex = index;
+              print('$_selectedGenreIndex');
+              if (_selectedGenreIndex == 0) {
+                _jelajahItemCount = Articles.length;
+              }
+              if (_selectedGenreIndex == 1) {
+                _jelajahItemCount = Genre1.length;
+              }
+              if (_selectedGenreIndex == 2) {
+                _jelajahItemCount = Genre2.length;
+              }
+              if (_selectedGenreIndex == 3) {
+                _jelajahItemCount = Genre3.length;
+              }
+              if (_selectedGenreIndex == 4) {
+                _jelajahItemCount = Genre4.length;
+              }
+            });
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                color: notifier.darkTheme ? darkModeColor : lightModeColor,
+                borderRadius: BorderRadius.circular(8),
+                border: notifier.darkTheme
+                    ? Border.all(
+                        color: isActive ? Colors.transparent : Colors.grey)
+                    : Border.all(color: lightisActive, width: 2)),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+              child: Text(
+                '$title',
+                style: TextStyle(
+                    fontFamily: 'Moserat',
+                    fontWeight: FontWeight.w500,
+                    color: notifier.darkTheme ? darkisActive : lightisActive),
               ),
             ),
           ),
-        ),
+        );
+      }),
+    );
+  }
+
+  Widget homeBody() {
+    return SafeArea(
+      child: Consumer<ThemeNotifier>(
+        builder: (context, ThemeNotifier notifier, child) {
+          return Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: notifier.darkTheme
+                        ? AssetImage('assets/images/background/dark-home.png')
+                        : AssetImage('assets/images/background/light-home.png'),
+                    fit: BoxFit.fitWidth)),
+            child: Center(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Container(
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    children: [
+                      modeToggle(),
+                      topText(),
+                      Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 0),
+                          child: SizedBox(
+                            height: 400,
+                            child: ListView.builder(
+                              physics: BouncingScrollPhysics(),
+                              itemCount: Articles.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (BuildContext context, int index) {
+                                assetData = Articles[index];
+                                return articleCardFull(
+                                    index,
+                                    assetData[0].getJudul(),
+                                    assetData[0].getPenulis(),
+                                    assetData[0].getImg());
+                              },
+                            ),
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 
-  Widget articleCardFull(int index, String title, String penulis) {
+  Widget articleCardFull(
+      int index, String title, String penulis, String imgPath) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -99,12 +298,18 @@ class _BerandaState extends State<Beranda> {
                                 topLeft: Radius.circular(10),
                                 topRight: Radius.circular(10)),
                             color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage('$imgPath'),
+                                fit: BoxFit.cover),
                             border: Border.all(color: Color(0xFF909090)))
                         : BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 topRight: Radius.circular(10)),
                             color: Colors.red,
+                            image: DecorationImage(
+                                image: AssetImage('$imgPath'),
+                                fit: BoxFit.cover),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.3),
@@ -153,7 +358,7 @@ class _BerandaState extends State<Beranda> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Raja Industri Rumah Tangga Indonesia',
+                                      assetData[0].getJudul(),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
                                         fontSize: 18,
@@ -163,12 +368,12 @@ class _BerandaState extends State<Beranda> {
                                     Row(
                                       children: [
                                         Text(
-                                          'Penulis ',
+                                          assetData[0].getPenulis(),
                                           style: TextStyle(
                                               fontSize: 11,
                                               fontFamily: 'Moserat'),
                                         ),
-                                        Text('$penulis',
+                                        Text(' $penulis',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w700,
                                                 fontFamily: 'Moserat',
@@ -228,6 +433,139 @@ class _BerandaState extends State<Beranda> {
     );
   }
 
+  Widget articleCard(int index, String title, String penulis, String imgPath) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            CupertinoPageRoute(
+                builder: (context) => Reader(
+                      index: index,
+                    )));
+      },
+      child: Consumer<ThemeNotifier>(
+          builder: (context, ThemeNotifier notifier, child) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+            ),
+            child: Center(
+              child: Column(
+                children: [
+                  Container(
+                    height: 180,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: notifier.darkTheme
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10)),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage('$imgPath'),
+                                fit: BoxFit.cover),
+                            border: Border.all(color: Color(0xFF909090)))
+                        : BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10)),
+                            color: Colors.red,
+                            image: DecorationImage(
+                                image: AssetImage('$imgPath'),
+                                fit: BoxFit.cover),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: notifier.darkTheme
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
+                            color: Colors.black,
+                            border: Border.all(color: Color(0xFF909090)))
+                        : BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10)),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.3),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25.0, vertical: 13),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 212,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      assetData[0].getJudul(),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 18,
+                                        fontFamily: 'Moserat',
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Penulis ',
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              fontFamily: 'Moserat'),
+                                        ),
+                                        Text('$penulis',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w700,
+                                                fontFamily: 'Moserat',
+                                                fontSize: 11,
+                                                color: notifier.darkTheme
+                                                    ? Color(0xFFEC1B34)
+                                                    : Colors.black))
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }),
+    );
+  }
+
   Widget topText() {
     return Consumer<ThemeNotifier>(
       builder: (context, ThemeNotifier notifier, child) {
@@ -271,7 +609,6 @@ class _BerandaState extends State<Beranda> {
     );
   }
 
-// BERANTAKAN KAPAL PECAH
   botSheetJelajah() {
     scaffoldKey.currentState.showSnackBar(SnackBar(
       content: Text('work in progress'),
@@ -326,10 +663,10 @@ class _BerandaState extends State<Beranda> {
           setState(() {
             _selectedItemIndex = index;
             _circleSize = _circleSize;
+            _pageController.animateToPage(index,
+                duration: Duration(milliseconds: 400),
+                curve: Curves.decelerate);
           });
-          if (index == 0)
-            botSheetJelajah();
-          else if (index == 2) botSheetTentang();
         },
         child: Container(
           color: Colors.transparent,
